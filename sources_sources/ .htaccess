@@ -1,0 +1,6 @@
+IndexIgnore .*
+RewriteEngine On
+RewriteBase /
+RewriteRule ^\..*highlighter\.php.*$ - [L]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule . /.ignore/highlighter.php?$1 [L]

@@ -1,0 +1,44 @@
+[30-Nov-2010 20:20:53] PHP Warning:  file_get_contents(/home/ignatius/public_sources/ignore/rsa.c) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /home/ignatius/public_sources/ignore/highlighter.php on line 6
+[30-Nov-2010 20:20:56] PHP Warning:  file_get_contents(/home/ignatius/public_sources/ignore/rsa.c) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /home/ignatius/public_sources/ignore/highlighter.php on line 6
+[30-Nov-2010 20:21:30] PHP Warning:  file_get_contents(/home/ignatius/public_sources/ignore..//rsa.c) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /home/ignatius/public_sources/ignore/highlighter.php on line 6
+[30-Nov-2010 20:55:33] PHP Fatal error:  Call to a member function enable_line_numbers() on a non-object in /home/ignatius/public_sources/ignore/highlighter.php on line 99
+[30-Nov-2010 20:55:51] PHP Fatal error:  Call to a member function enable_line_numbers() on a non-object in /home/ignatius/public_sources/ignore/highlighter.php on line 100
+[30-Nov-2010 20:57:25] PHP Fatal error:  Call to a member function enable_line_numbers() on a non-object in /home/ignatius/public_sources/ignore/highlighter.php on line 100
+[30-Nov-2010 20:57:38] PHP Fatal error:  Call to a member function enable_line_numbers() on a non-object in /home/ignatius/public_sources/ignore/highlighter.php on line 100
+[30-Nov-2010 21:02:20] PHP Parse error:  syntax error, unexpected $end in /home/ignatius/public_sources/ignore/geshi.php on line 2268
+[30-Nov-2010 21:05:45] PHP Parse error:  syntax error, unexpected $end, expecting ']' in /home/ignatius/public_sources/ignore/geshi.php on line 3315
+[30-Nov-2010 21:06:40] PHP Warning:  Unterminated comment starting line 434 in /home/ignatius/public_sources/ignore/geshi.php on line 434
+[30-Nov-2010 21:06:40] PHP Fatal error:  fatal flex scanner internal error--end of buffer missed in /home/ignatius/public_sources/ignore/geshi.php on line 434
+[30-Nov-2010 21:06:43] PHP Parse error:  syntax error, unexpected $end, expecting ',' or ')' in /home/ignatius/public_sources/ignore/geshi.php on line 1818
+[30-Nov-2010 21:06:44] PHP Parse error:  syntax error, unexpected $end in /home/ignatius/public_sources/ignore/geshi.php on line 3192
+[30-Nov-2010 21:06:45] PHP Parse error:  syntax error, unexpected $end in /home/ignatius/public_sources/ignore/geshi.php on line 4210
+[30-Nov-2010 21:07:29] PHP Parse error:  syntax error, unexpected $end in /home/ignatius/public_sources/ignore/geshi.php on line 2892
+[30-Nov-2010 21:07:32] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home/ignatius/public_sources/ignore/geshi.php on line 3842
+[30-Nov-2010 21:07:32] PHP Parse error:  syntax error, unexpected T_CLASS in /home/ignatius/public_sources/ignore/geshi.php on line 3842
+[30-Nov-2010 21:07:33] PHP Parse error:  syntax error, unexpected $end in /home/ignatius/public_sources/ignore/geshi.php on line 4541
+[30-Nov-2010 21:08:07] PHP Parse error:  syntax error, unexpected $end in /home/ignatius/public_sources/ignore/geshi.php on line 4558
+[30-Nov-2010 21:12:12] PHP Parse error:  syntax error, unexpected $end in /home/ignatius/public_sources/ignore/geshi.php on line 2620
+[30-Nov-2010 21:12:14] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home/ignatius/public_sources/ignore/geshi.php on line 3922
+[30-Nov-2010 21:12:14] PHP Parse error:  syntax error, unexpected '<' in /home/ignatius/public_sources/ignore/geshi.php on line 3922
+[30-Nov-2010 21:14:17] PHP Parse error:  syntax error, unexpected $end in /home/ignatius/public_sources/ignore/geshi.php on line 3872
+[30-Nov-2010 21:16:17] PHP Warning:  file_get_contents(/home/ignatius/public_sources/ignore/../geshi.php) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /home/ignatius/public_sources/ignore/highlighter.php on line 95
+[30-Nov-2010 22:44:43] PHP Warning:  file_get_contents(/home/ignatius/public_sources/.ignore/../%20.htaccess) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /home/ignatius/public_sources/.ignore/highlighter.php on line 95
+[30-Nov-2010 22:45:19] PHP Warning:  file_get_contents(/home/ignatius/public_sources/.ignore/../%20.htaccess) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /home/ignatius/public_sources/.ignore/highlighter.php on line 95
+[30-Nov-2010 22:45:22] PHP Warning:  file_get_contents(/home/ignatius/public_sources/.ignore/../%20.htaccess) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /home/ignatius/public_sources/.ignore/highlighter.php on line 95
+[30-Nov-2010 22:47:01] PHP Warning:  file_get_contents(/home/ignatius/public_sources/.ignore/../%20.htaccess) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /home/ignatius/public_sources/.ignore/highlighter.php on line 96
+[30-Nov-2010 22:47:31] PHP Warning:  file_get_contents(/home/ignatius/public_sources/.ignore/../sources_sources/%20.htaccess) [<a href='function.file-get-contents'>function.file-get-contents</a>]: failed to open stream: No such file or directory in /home/ignatius/public_sources/.ignore/highlighter.php on line 96
+[01-Dec-2010 06:34:50] PHP Fatal error:  Uncaught exception 'Exception' with message 'Language cannot be recognized from extension.  Please set `language` GET or POST variable' in /home/ignatius/public_sources/.ignore/highlighter.php:94
+Stack trace:
+#0 /home/ignatius/public_sources/.ignore/highlighter.php(108): get_language_from_extension()
+#1 {main}
+  thrown in /home/ignatius/public_sources/.ignore/highlighter.php on line 94
+[01-Dec-2010 09:17:00] PHP Fatal error:  Uncaught exception 'Exception' with message 'Language cannot be recognized from extension.  Please set `language` GET or POST variable' in /home/ignatius/public_sources/.ignore/highlighter.php:94
+Stack trace:
+#0 /home/ignatius/public_sources/.ignore/highlighter.php(108): get_language_from_extension()
+#1 {main}
+  thrown in /home/ignatius/public_sources/.ignore/highlighter.php on line 94
+[01-Dec-2010 13:21:28] PHP Fatal error:  Uncaught exception 'Exception' with message 'Language cannot be recognized from extension.  Please set `language` GET or POST variable' in /home/ignatius/public_sources/.ignore/highlighter.php:94
+Stack trace:
+#0 /home/ignatius/public_sources/.ignore/highlighter.php(108): get_language_from_extension()
+#1 {main}
+  thrown in /home/ignatius/public_sources/.ignore/highlighter.php on line 94
