@@ -1,0 +1,3 @@
+This directory is actually a list of commands that I keep accessible to my PATH at all times.  There is actually an "includes" directory where most of these scripts exist.
+
+I have a similar policy under Windows.  The first directory I create on a new Win. machine is C:\include.  I then add it to %PATH% so that I can easily add bat files to the %PATH% at any point.  (I then re-map ls to dir, rm to del, poweroff to shutdown /F /T 1... etc.)
