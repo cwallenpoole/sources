@@ -1,9 +1,32 @@
 <?php
-$req = $_SERVER[ 'REQUEST_URI' ];
-// %20 allows the creation of " .htaccess" files.
-// remove ".." to prevent access to things located elsewhere on the server!
-$req = str_replace( array('%20','..'), array(' ', ''), $req );
+/*
+* Copyright (c) 2010 Christopher W. Allen-Poole
+* 
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in
+* all copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+* THE SOFTWARE.
+*/
+//FIXME: This should automatically prepend the MIT license unless another
+//	 license is noted on the file.
 
+$req = $_SERVER[ 'REQUEST_URI' ];
+$req = str_replace( '%20', ' ', $req );
+//FIXME: This needs to be split into multiple files.  I had thought it could
+//	 be avoided, but it just does not seem tenable anymore. 
 // issue with htaccess.  In some circumstances, this isn't properly reading $_GET.
 if( strpos( $req, "download=" ) !== FALSE )
 {
@@ -30,9 +53,17 @@ function get_file_contents( $req )
 function get_extension( $file )
 {
     $path_info = pathinfo( $file );
-    return $path_info['extension'];
+    return @$path_info['extension'];
 }
-
+$ext = get_extension($req);
+// all of these are conditions where the highlighter should simply
+// output the file content and then exit.
+if( is_null( $ext ) || !$ext || in_array( $ext, array( "txt") ) )
+{
+    header( 'Content-type: text/plain' );
+    echo get_file_contents($req);
+    exit;
+}
 function get_language_from_extension( $ext )
 {
     $ret = "";
@@ -133,7 +164,7 @@ You're looking at <?php echo $req; ?>.<br /><a href="<?php echo $_SERVER[ 'REQUE
 $file = get_file_contents( $req );
 $lang = ( isset( $_REQUEST[ 'language' ] ) )? 
             $_REQUEST[ 'language' ]: 
-            get_language_from_extension( get_extension( $req ) );
+            get_language_from_extension( $ext );
 $gesh = new GeSHi( $file, strtolower( $lang ) );
 $gesh->enable_line_numbers( GESHI_FANCY_LINE_NUMBERS );
 $gesh->line_style1 = 'font-weight: bold; vertical-align:top;';
