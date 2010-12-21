@@ -1,6 +1,8 @@
 <?php
 $req = $_SERVER[ 'REQUEST_URI' ];
-$req = str_replace( '%20', ' ', $req );
+// %20 allows the creation of " .htaccess" files.
+// remove ".." to prevent access to things located elsewhere on the server!
+$req = str_replace( array('%20','..'), array(' ', ''), $req );
 
 // issue with htaccess.  In some circumstances, this isn't properly reading $_GET.
 if( strpos( $req, "download=" ) !== FALSE )
@@ -126,7 +128,7 @@ function get_language_from_extension( $ext )
 
 ?>
 <html><head><title><?php echo $req; ?></title></head><body>
-You're looking at <?php echo $req; ?>.  <a href="<?php echo $_SERVER[ 'REQUEST_URI' ];?>?download=1">Click here to download it as a text file.</a>
+You're looking at <?php echo $req; ?>.<br /><a href="<?php echo $_SERVER[ 'REQUEST_URI' ];?>?download=1">Click here to download it as a text file.</a>
 <code><?php
 $file = get_file_contents( $req );
 $lang = ( isset( $_REQUEST[ 'language' ] ) )? 
