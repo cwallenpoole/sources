@@ -28,9 +28,15 @@ function get_file_contents( $req )
 function get_extension( $file )
 {
     $path_info = pathinfo( $file );
-    return $path_info['extension'];
+    return @$path_info['extension'];
 }
-
+$ext = get_extension($req);
+if( is_null( $ext ) || !$ext )
+{
+    header( 'Content-type: text/plain' );
+    echo get_file_contents($req);
+    exit;
+}
 function get_language_from_extension( $ext )
 {
     $ret = "";
@@ -131,7 +137,7 @@ You're looking at <?php echo $req; ?>.<br /><a href="<?php echo $_SERVER[ 'REQUE
 $file = get_file_contents( $req );
 $lang = ( isset( $_REQUEST[ 'language' ] ) )? 
             $_REQUEST[ 'language' ]: 
-            get_language_from_extension( get_extension( $req ) );
+            get_language_from_extension( $ext );
 $gesh = new GeSHi( $file, strtolower( $lang ) );
 $gesh->enable_line_numbers( GESHI_FANCY_LINE_NUMBERS );
 $gesh->line_style1 = 'font-weight: bold; vertical-align:top;';

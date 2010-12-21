@@ -2,21 +2,41 @@
 $req = $_SERVER[ 'REQUEST_URI' ];
 $req = str_replace( '%20', ' ', $req );
 
-if( isset( $_REQUEST[ 'download' ] ) )
+// issue with htaccess.  In some circumstances, this isn't properly reading $_GET.
+if( strpos( $req, "download=" ) !== FALSE )
 {
+    $contents = get_file_contents( $req );
+    $name     = get_file_name( $req );
     header( 'Content-type: text/plain' );
-    header( 'Content-Disposition: attachment; filename="' . basename( $req ) .'"' );
-    readfile( $req );
+    header( 'Content-Disposition: attachment; filename="' . $name .'"' );
+    print( $contents );
+    exit;
 }
 
 require_once( "geshi.php" );
 
+function get_file_name( $req )
+{
+    if( ( $pos = strpos( $req, "?" ) ) !== FALSE ) $req = substr( $req, 0, $pos );
+    return ( $req );
+}
+function get_file_contents( $req )
+{
+    return trim( file_get_contents( $_SERVER[ 'DOCUMENT_ROOT' ] . DIRECTORY_SEPARATOR . get_file_name( $req ) ) );
+}
+
 function get_extension( $file )
 {
     $path_info = pathinfo( $file );
-    return $path_info['extension'];
+    return @$path_info['extension'];
 }
-
+$ext = get_extension($req);
+if( is_null( $ext ) || !$ext )
+{
+    header( 'Content-type: text/plain' );
+    echo get_file_contents($req);
+    exit;
+}
 function get_language_from_extension( $ext )
 {
     $ret = "";
@@ -111,11 +131,13 @@ function get_language_from_extension( $ext )
 
 
 ?>
-<html><head><title><?php echo $req; ?></title></head><body><code><?php
-$file = trim( file_get_contents( dirname( __FILE__ ) . DIRECTORY_SEPARATOR . '..' . $req ) );
+<html><head><title><?php echo $req; ?></title></head><body>
+You're looking at <?php echo $req; ?>.<br /><a href="<?php echo $_SERVER[ 'REQUEST_URI' ];?>?download=1">Click here to download it as a text file.</a>
+<code><?php
+$file = get_file_contents( $req );
 $lang = ( isset( $_REQUEST[ 'language' ] ) )? 
             $_REQUEST[ 'language' ]: 
-            get_language_from_extension( get_extension( $req ) );
+            get_language_from_extension( $ext );
 $gesh = new GeSHi( $file, strtolower( $lang ) );
 $gesh->enable_line_numbers( GESHI_FANCY_LINE_NUMBERS );
 $gesh->line_style1 = 'font-weight: bold; vertical-align:top;';
