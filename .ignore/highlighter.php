@@ -24,7 +24,9 @@
 //	 license is noted on the file.
 
 $req = $_SERVER[ 'REQUEST_URI' ];
-$req = str_replace( '%20', ' ', $req );
+//TODO: Would this be better if it simply checked to see if the file
+//	was in some descendant directory?
+$req = str_replace( array('%20',".."), array(' ',""), $req );
 //FIXME: This needs to be split into multiple files.  I had thought it could
 //	 be avoided, but it just does not seem tenable anymore. 
 // issue with htaccess.  In some circumstances, this isn't properly reading $_GET.
