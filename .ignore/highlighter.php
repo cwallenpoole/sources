@@ -126,7 +126,7 @@ function get_language_from_extension( $ext )
 
 ?>
 <html><head><title><?php echo $req; ?></title></head><body>
-You're looking at <?php echo $req; ?>.  <a href="<?php echo $_SERVER[ 'REQUEST_URI' ];?>?download=1">Click here to download it as a text file.</a>
+You're looking at <?php echo $req; ?>.<br /><a href="<?php echo $_SERVER[ 'REQUEST_URI' ];?>?download=1">Click here to download it as a text file.</a>
 <code><?php
 $file = get_file_contents( $req );
 $lang = ( isset( $_REQUEST[ 'language' ] ) )? 
