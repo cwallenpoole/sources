@@ -140,6 +140,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;across
+; This is similar to for i in but it works with arrays.
 (loop for i
       across
       #(100 20 10)
